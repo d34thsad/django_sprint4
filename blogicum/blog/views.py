@@ -221,7 +221,7 @@ class CommentCreateView(LoginRequiredMixin, CreateView):
     def get_success_url(self):
         pk = self.kwargs["pk"]
         return reverse("blog:post_detail", kwargs={"pk": pk})
-    
+
     def send_author_email(self):
         post_url = self.request.build_absolute_uri(self.get_success_url())
         recipient_email = self.post_data.author.email
